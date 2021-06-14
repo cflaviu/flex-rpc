@@ -6,7 +6,7 @@
     #include <flex_rpc/message/type.hpp>
 #endif
 
-namespace flex_rpc::message::dlt::clear
+namespace flex_rpc::message::dlt::configuration::change
 {
     struct request
     {

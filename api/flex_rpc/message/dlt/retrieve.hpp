@@ -6,20 +6,15 @@
     #include <flex_rpc/message/type.hpp>
 #endif
 
-namespace flex_rpc::message::event::unsubscription
+namespace flex_rpc::message::dlt::retrieve
 {
     struct request
     {
-        object_id object = 0;
-        event_id event;
-        context_id context;
     };
 
     struct response
     {
-        object_id object = 0;
-        event_id event;
-        context_id context;
-        std::uint16_t error;
+        error_id error;
+        raw_data data;
     };
 }
