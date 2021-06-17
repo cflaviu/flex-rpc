@@ -6,7 +6,7 @@
     #include <flex_rpc/message/type.hpp>
 #endif
 
-namespace flex_rpc::message::dlt::is_activated
+namespace flex_rpc::message::dlt::get_status
 {
     struct request
     {

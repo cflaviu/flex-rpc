@@ -11,6 +11,14 @@
     #include <flex_rpc/message/discovery/method.hpp>
     #include <flex_rpc/message/discovery/object.hpp>
     #include <flex_rpc/message/discovery/parameter.hpp>
+    #include <flex_rpc/message/dlt/activate.hpp>
+    #include <flex_rpc/message/dlt/clear.hpp>
+    #include <flex_rpc/message/dlt/configuration/change.hpp>
+    #include <flex_rpc/message/dlt/configuration/reset.hpp>
+    #include <flex_rpc/message/dlt/configuration/retrieve.hpp>
+    #include <flex_rpc/message/dlt/deactivate.hpp>
+    #include <flex_rpc/message/dlt/get_status.hpp>
+    #include <flex_rpc/message/dlt/retrieve.hpp>
     #include <flex_rpc/message/event/generator/change.hpp>
     #include <flex_rpc/message/event/generator/create.hpp>
     #include <flex_rpc/message/event/generator/destroy.hpp>
@@ -48,15 +56,76 @@ namespace flex_rpc::message
         dlt::configuration::reset::request, dlt::configuration::reset::response,
         dlt::configuration::retrieve::request, dlt::configuration::retrieve::response,
         dlt::deactivate::request, dlt::deactivate::response,
-        dlt::is_activated::request, dlt::is_activated::response,
-        dlt::retrieve::request, dlt::retrieve::response,
+        dlt::get_status::request, dlt::get_status::response,
+        dlt::retrieve::request, dlt::retrieve::response
         >;
     // clang-format on
 
-    inline type type_of(const variant& item) noexcept
+    enum class type : std::uint8_t
     {
-        return static_cast<type>(item.index() & 0xFF);
-    }
+        connection_request,
+        connection_response,
+
+        disconnection_request,
+
+        feature_request,
+        feature_response,
+
+        call_request,
+        call_response,
+
+        ping_request,
+        ping_response,
+
+        event_notification,
+
+        event_subscription_request,
+        event_subscription_response,
+
+        event_unsubscription_request,
+        event_unsubscription_response,
+
+        event_generator_create_request,
+        event_generator_create_response,
+
+        event_generator_destroy_request,
+        event_generator_destroy_response,
+
+        discovery_object_request,
+        discovery_object_response,
+
+        discovery_method_request,
+        discovery_method_response,
+
+        discovery_event_request,
+        discovery_event_response,
+
+        dlt_activate_request,
+        dlt_activate_response,
+
+        dlt_clear_request,
+        dlt_clear_response,
+
+        dlt_configuration_change_request,
+        dlt_configuration_change_response,
+
+        dlt_configuration_reset_request,
+        dlt_configuration_reset_response,
+
+        dlt_configuration_retrieve_request,
+        dlt_configuration_retrieve_response,
+
+        dlt_deactivate_request,
+        dlt_deactivate_response,
+
+        dlt_get_status_request,
+        dlt_get_status_response,
+
+        dlt_retrieve_request,
+        dlt_retrieve_response
+    };
+
+    inline type type_of(const variant& item) noexcept { return static_cast<type>(item.index() & 0xFF); }
 
     using variant_array = cista::offset::vector<variant>;
 }

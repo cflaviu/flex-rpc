@@ -3,7 +3,7 @@
 
 #pragma once
 #ifndef PCH
-    #include <flex_rpc/message/type.hpp>
+    #include <flex_rpc/message/discovery/parameter.hpp>
 #endif
 
 namespace flex_rpc::message::discovery::event
