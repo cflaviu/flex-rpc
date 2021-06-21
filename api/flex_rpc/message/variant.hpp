@@ -32,15 +32,15 @@
     #include <flex_rpc/message/variant.hpp>
 #endif
 
-namespace flex_rpc::message
+namespace flex_rpc::message::variant
 {
     // clang-format off
-    using variant = cista::variant<
+    using item = cista::variant<
         connection::request, connection::response,
         disconnection::request,
         feature::request, feature::response,
         call::request, call::response,
-        call_cancel::request,
+        call::cancel::request,
         ping::request, ping::response,
         event::notification,
         event::subscription::request, event::subscription::response,
@@ -50,14 +50,14 @@ namespace flex_rpc::message
         discovery::object::request, discovery::object::response,
         discovery::method::request, discovery::method::response,
         discovery::event::request, discovery::event::response,
+        dlt::get_status::request, dlt::get_status::response,
+        dlt::retrieve::request, dlt::retrieve::response,
         dlt::activate::request, dlt::activate::response,
+        dlt::deactivate::request, dlt::deactivate::response,
         dlt::clear::request, dlt::clear::response,
         dlt::configuration::change::request, dlt::configuration::change::response,
         dlt::configuration::reset::request, dlt::configuration::reset::response,
-        dlt::configuration::retrieve::request, dlt::configuration::retrieve::response,
-        dlt::deactivate::request, dlt::deactivate::response,
-        dlt::get_status::request, dlt::get_status::response,
-        dlt::retrieve::request, dlt::retrieve::response
+        dlt::configuration::retrieve::request, dlt::configuration::retrieve::response
         >;
     // clang-format on
 
@@ -73,6 +73,8 @@ namespace flex_rpc::message
 
         call_request,
         call_response,
+
+        call_cancel_request,
 
         ping_request,
         ping_response,
@@ -100,8 +102,17 @@ namespace flex_rpc::message
         discovery_event_request,
         discovery_event_response,
 
+        dlt_get_status_request,
+        dlt_get_status_response,
+
+        dlt_retrieve_request,
+        dlt_retrieve_response,
+
         dlt_activate_request,
         dlt_activate_response,
+
+        dlt_deactivate_request,
+        dlt_deactivate_response,
 
         dlt_clear_request,
         dlt_clear_response,
@@ -114,18 +125,9 @@ namespace flex_rpc::message
 
         dlt_configuration_retrieve_request,
         dlt_configuration_retrieve_response,
-
-        dlt_deactivate_request,
-        dlt_deactivate_response,
-
-        dlt_get_status_request,
-        dlt_get_status_response,
-
-        dlt_retrieve_request,
-        dlt_retrieve_response
     };
 
-    inline type type_of(const variant& item) noexcept { return static_cast<type>(item.index() & 0xFF); }
+    inline type type_of(const variant::item& item) noexcept { return static_cast<type>(item.index() & 0xFF); }
 
-    using variant_array = cista::offset::vector<variant>;
+    using array = cista::offset::vector<item>;
 }

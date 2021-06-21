@@ -6,7 +6,7 @@
     #include <flex_rpc/message/type.hpp>
 #endif
 
-namespace flex_rpc::message::call_cancel
+namespace flex_rpc::message::call::cancel
 {
     struct request
     {
