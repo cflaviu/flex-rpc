@@ -13,14 +13,15 @@ namespace flex_rpc::message::call
         object_id object = 0;
         method_id method;
         raw_data parameters;
+
+        request() = default;
+        request(const object_id object, const method_id method): object(object), method(method) {}
     };
 
-    struct response
+    struct response: public base_response
     {
-        object_id object = 0;
-        method_id method;
-        context_id context;
-        error_id error;
         raw_data result;
+
+        response(const context_id context, const error_id error = error_id::none): base_response(context, error) {}
     };
 }

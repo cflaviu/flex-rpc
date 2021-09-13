@@ -13,7 +13,7 @@ namespace flex_rpc::message::event::generator::create
         using method_ref = std::pair<object_id, method_id>;
         using event_ref = std::pair<object_id, event_id>;
         using method_ref_array = cista::offset::vector<method_ref>;
-        using event_ref_array= cista::offset::vector<event_ref>;
+        using event_ref_array = cista::offset::vector<event_ref>;
 
         object_id object = 0;
         method_ref_array input_methods;
@@ -21,9 +21,10 @@ namespace flex_rpc::message::event::generator::create
         raw_data code;
     };
 
-    struct response
+    struct response: public base_response
     {
-        error_id error;
         event_id event;
+
+        response(const context_id context, const error_id error = error_id::none): base_response(context, error) {}
     };
 }

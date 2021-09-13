@@ -35,7 +35,7 @@ namespace flex_rpc::message::request
 {
     // clang-format off
     using item = cista::variant<
-        feature::request,
+        feature::list::request,
         call::cancel::request,
         call::request,
         connection::request,
@@ -49,7 +49,7 @@ namespace flex_rpc::message::request
         dlt::configuration::reset::request,
         dlt::configuration::retrieve::request,
         dlt::deactivate::request,
-        dlt::get_status::request,
+        dlt::status::request,
         dlt::retrieve::request,
         event::generator::create::request,
         event::generator::destroy::request,
@@ -63,7 +63,7 @@ namespace flex_rpc::message::request
 
     enum class type : std::uint8_t
     {
-        feature_request,
+        feature_list_request,
         call_cancel_request,
         call_request,
         connection_request,
@@ -77,7 +77,7 @@ namespace flex_rpc::message::request
         dlt_configuration_reset_request,
         dlt_configuration_retrieve_request,
         dlt_deactivate_request,
-        dlt_get_status_request,
+        dlt_status_request,
         dlt_retrieve_request,
         event_generator_create_request,
         event_generator_destroy_request,
@@ -86,6 +86,8 @@ namespace flex_rpc::message::request
         ping_request,
     };
 
+    constexpr auto type_count = +type::ping_request + 1;
+
     inline type type_of(const item& item) noexcept { return static_cast<type>(item.index() & 0xFFu); }
 }
 
@@ -93,7 +95,7 @@ namespace flex_rpc::message::response
 {
     // clang-format off
     using item = cista::variant<
-        feature::response,
+        feature::list::response,
         call::response,
         connection::response,
         discovery::event::response,
@@ -105,7 +107,7 @@ namespace flex_rpc::message::response
         dlt::configuration::reset::response,
         dlt::configuration::retrieve::response,
         dlt::deactivate::response,
-        dlt::get_status::response,
+        dlt::status::response,
         dlt::retrieve::response,
         event::generator::create::response,
         event::generator::destroy::response,
@@ -120,7 +122,7 @@ namespace flex_rpc::message::response
 
     enum class type : std::uint8_t
     {
-        feature_response,
+        feature_list_response,
         call_response,
         connection_response,
         discovery_event_response,
@@ -132,7 +134,7 @@ namespace flex_rpc::message::response
         dlt_configuration_reset_response,
         dlt_configuration_retrieve_response,
         dlt_deactivate_response,
-        dlt_get_status_response,
+        dlt_status_response,
         dlt_retrieve_response,
         event_generator_create_response,
         event_generator_destroy_response,
@@ -142,14 +144,17 @@ namespace flex_rpc::message::response
         ping_response
     };
 
+    constexpr auto type_count = +type::ping_response + 1;
+
     inline type type_of(const item& item) noexcept { return static_cast<type>(item.index() & 0xFFu); }
 }
 
 namespace flex_rpc::message
 {
-    struct content
+    struct data
     {
         response::array responses;
         request::array requests;
+        std::optional<context_id> request_context;
     };
 }

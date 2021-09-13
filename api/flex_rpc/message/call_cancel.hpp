@@ -12,6 +12,5 @@ namespace flex_rpc::message::call::cancel
     {
         object_id object = 0;
         method_id method;
-        context_id context;
     };
 }

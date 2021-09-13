@@ -14,11 +14,8 @@ namespace flex_rpc::message::event::subscription
         event_id event;
     };
 
-    struct response
+    struct response: public base_response
     {
-        object_id object = 0;
-        event_id event;
-        context_id context;
-        std::uint16_t error;
+        response(const context_id context, const error_id error = error_id::none): base_response(context, error) {}
     };
 }

@@ -6,15 +6,16 @@
     #include <flex_rpc/message/type.hpp>
 #endif
 
-namespace flex_rpc::message::dlt::get_status
+namespace flex_rpc::message::dlt::status
 {
     struct request
     {
     };
 
-    struct response
+    struct response: public base_response
     {
-        error_id error;
         bool is_activated = false;
+
+        response(const context_id context, const error_id error = error_id::none): base_response(context, error) {}
     };
 }

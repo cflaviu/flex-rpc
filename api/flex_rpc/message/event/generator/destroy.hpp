@@ -14,8 +14,8 @@ namespace flex_rpc::message::event::generator::destroy
         event_id event;
     };
 
-    struct response
+    struct response: public base_response
     {
-        error_id error;
+        response(const context_id context, const error_id error = error_id::none): base_response(context, error) {}
     };
 }

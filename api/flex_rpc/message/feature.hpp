@@ -11,7 +11,7 @@ namespace flex_rpc::message::feature
     using id = std::uint16_t;
     using id_array = cista::offset::vector<id>;
 
-    enum class item: id
+    enum class item : id
     {
         call,
         call_cancel,
@@ -40,13 +40,17 @@ namespace flex_rpc::message::feature
         ping,
     };
 
-    struct request
+    namespace list
     {
-    };
+        struct request
+        {
+        };
 
-    struct response
-    {
-        id_array features;
-        error_id error;
-    };
+        struct response: public base_response
+        {
+            id_array features;
+
+            response(const context_id context, const error_id error = error_id::none): base_response(context, error) {}
+        };
+    }
 }

@@ -11,7 +11,7 @@ StaticLibrary {
         "api/flex_rpc/message/call.hpp",
         "api/flex_rpc/message/call_cancel.hpp",
         "api/flex_rpc/message/connection.hpp",
-        "api/flex_rpc/message/content.hpp",
+        "api/flex_rpc/message/data.hpp",
         "api/flex_rpc/message/disconnection.hpp",
         "api/flex_rpc/message/discovery/event.hpp",
         "api/flex_rpc/message/discovery/method.hpp",
@@ -35,6 +35,7 @@ StaticLibrary {
         "api/flex_rpc/message/feature.hpp",
         "api/flex_rpc/message/ping.hpp",
         "api/flex_rpc/message/type.hpp",
+        "src/client/client.cpp",
     ]
     Group {     // Properties for the produced executable
         name: "installer"

@@ -23,9 +23,10 @@ namespace flex_rpc::message::discovery::method
         object_id object = 0;
     };
 
-    struct response
+    struct response: public base_response
     {
-        error_id error;
         info_array meta_information;
+
+        response(const context_id context, const error_id error = error_id::none): base_response(context, error) {}
     };
 }
