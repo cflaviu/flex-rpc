@@ -12,10 +12,10 @@ namespace flex_rpc::message::dlt::status
     {
     };
 
-    struct response: public base_response
+    struct response
     {
+        context_id context {};
+        error_id error {};
         bool is_activated = false;
-
-        response(const context_id context, const error_id error = error_id::none): base_response(context, error) {}
     };
 }

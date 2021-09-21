@@ -12,8 +12,9 @@ namespace flex_rpc::message::dlt::configuration::retrieve
     {
     };
 
-    struct response: public base_response
+    struct response
     {
-        response(const context_id context, const error_id error = error_id::none): base_response(context, error) {}
+        context_id context {};
+        error_id error {};
     };
 }

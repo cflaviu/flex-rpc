@@ -8,11 +8,11 @@
 
 namespace flex_rpc::message::discovery::event
 {
-    class info
+    struct info
     {
-        string name;
-        string description;
-        parameter::variant_array output;
+        string name {};
+        string description {};
+        parameter::array output {};
     };
 
     using info_array = cista::offset::vector<info>;
@@ -22,10 +22,11 @@ namespace flex_rpc::message::discovery::event
         object_id object = 0;
     };
 
-    struct response: public base_response
+    struct response
     {
-        info_array meta_information;
-
-        response(const context_id context, const error_id error = error_id::none): base_response(context, error) {}
+        context_id context {};
+        error_id error {};
+        parameter::type_array types {};
+        info_array meta_information {};
     };
 }

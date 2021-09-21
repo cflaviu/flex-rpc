@@ -46,11 +46,11 @@ namespace flex_rpc::message::feature
         {
         };
 
-        struct response: public base_response
+        struct response
         {
-            id_array features;
-
-            response(const context_id context, const error_id error = error_id::none): base_response(context, error) {}
+            context_id context {};
+            error_id error {};
+            id_array features {};
         };
     }
 }

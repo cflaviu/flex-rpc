@@ -18,10 +18,16 @@ namespace flex_rpc::message::call
         request(const object_id object, const method_id method): object(object), method(method) {}
     };
 
-    struct response: public base_response
+    struct rr
     {
-        raw_data result;
+        context_id context {};
+        error_id error {};
+    };
 
-        response(const context_id context, const error_id error = error_id::none): base_response(context, error) {}
+    struct response //: public rr
+    {
+        context_id context {};
+        error_id error {};
+        raw_data result {};
     };
 }

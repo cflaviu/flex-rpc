@@ -21,10 +21,10 @@ namespace flex_rpc::message::event::generator::create
         raw_data code;
     };
 
-    struct response: public base_response
+    struct response
     {
-        event_id event;
-
-        response(const context_id context, const error_id error = error_id::none): base_response(context, error) {}
+        context_id context {};
+        error_id error {};
+        event_id event {};
     };
 }

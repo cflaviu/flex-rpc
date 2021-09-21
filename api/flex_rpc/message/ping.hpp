@@ -12,16 +12,10 @@ namespace flex_rpc::message::ping
     {
     };
 
-    struct response: public base_response
+    struct response
     {
-        uint16_t duration_in_ms;
-
-        response(const context_id context, const error_id error = error_id::none): base_response(context, error), duration_in_ms(0) {}
-
-        response(const context_id context, const uint16_t duration_in_ms, const error_id error = error_id::none):
-            base_response(context, error),
-            duration_in_ms(duration_in_ms)
-        {
-        }
+        context_id context {};
+        error_id error {};
+        uint16_t duration_in_ms {};
     };
 }

@@ -16,10 +16,10 @@ namespace flex_rpc::message::connection
         api_levelt_t api_level;
     };
 
-    struct response: public base_response
+    struct response
     {
-        tokent_t token;
-
-        response(const context_id context, const error_id error = error_id::none): base_response(context, error) {}
+        context_id context {};
+        error_id error {};
+        tokent_t token {};
     };
 }

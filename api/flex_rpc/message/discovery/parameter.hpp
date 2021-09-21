@@ -8,43 +8,71 @@
 
 namespace flex_rpc::message::discovery::parameter
 {
-    using type_id = std::uint32_t;
+    using type_id = std::uint16_t;
 
-    class base
+    enum class primary_type : std::uint8_t
     {
-    public:
-        type_id type;
-        string name;
+        boolean,
+        char8,
+        char16,
+        char32,
+        uint8,
+        uint16,
+        uint32,
+        uint64,
+        int8,
+        int16,
+        int32,
+        int64,
+        float32,
+        float64,
     };
 
-    class sclar: public base
+    // sclar type
+    struct sclar_type
     {
-    public:
+        primary_type base_type;
+        string name {};
+        string description {};
     };
 
-    class array: public base
+    // array type
+    struct array_type
     {
-    public:
-        type_id item_type;
-        size_t max_size;
-        std::optional<std::size_t> size;
+        string name {};
+        string description {};
+        type_id inner_type {};
+        length_t size {};
+        length_t max_size {};
     };
 
-    class structure: public base
+    // structural type
+    struct structural_type
     {
-    public:
         struct member
         {
-            type_id item_type;
-            string name;
-            string description;
+            type_id type {};
+            string name {};
         };
 
         using member_array = cista::offset::vector<member>;
 
-        member_array members;
+        string name {};
+        string description {};
+        member_array members {};
     };
 
-    using variant = cista::variant<sclar, array, structure>;
-    using variant_array = cista::offset::vector<variant>;
+    using structure_type = structural_type;
+    using union_type = structural_type;
+
+    using variant_type = cista::variant<sclar_type, array_type, structure_type, union_type>;
+    using type_array = cista::offset::vector<variant_type>;
+
+    struct item
+    {
+        type_id type {}; // refers a type from type_array
+        string name {};  // parameter name
+    };
+
+    using array = cista::offset::vector<item>;
 }

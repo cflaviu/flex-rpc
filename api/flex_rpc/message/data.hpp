@@ -155,6 +155,6 @@ namespace flex_rpc::message
     {
         response::array responses;
         request::array requests;
-        std::optional<context_id> request_context;
+        context_id request_context = no_context; // request_context should be non-zero if requests are present
     };
 }
