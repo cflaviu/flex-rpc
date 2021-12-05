@@ -24,7 +24,6 @@ namespace flex_rpc::message::discovery::object
 
     struct response
     {
-        context_id context {};
         error_id error {};
         info_array meta_information {};
     };

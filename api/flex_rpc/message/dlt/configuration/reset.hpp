@@ -14,7 +14,6 @@ namespace flex_rpc::message::dlt::configuration::reset
 
     struct response
     {
-        context_id context {};
         error_id error {};
     };
 }

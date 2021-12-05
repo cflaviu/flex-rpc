@@ -14,7 +14,6 @@ namespace flex_rpc::message::ping
 
     struct response
     {
-        context_id context {};
         error_id error {};
         uint16_t duration_in_ms {};
     };

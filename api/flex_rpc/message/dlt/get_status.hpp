@@ -14,8 +14,9 @@ namespace flex_rpc::message::dlt::status
 
     struct response
     {
-        context_id context {};
         error_id error {};
-        bool is_activated = false;
+        time_point start_time {};
+        time_point end_time {};
+        bool is_activated {};
     };
 }

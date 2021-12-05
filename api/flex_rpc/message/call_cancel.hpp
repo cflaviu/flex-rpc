@@ -10,7 +10,7 @@ namespace flex_rpc::message::call::cancel
 {
     struct request
     {
-        object_id object = 0;
-        method_id method;
+        object_id object {};
+        method_id method {};
     };
 }

@@ -8,18 +8,15 @@
 
 namespace flex_rpc::message::connection
 {
-    using api_levelt_t = std::uint16_t;
-    using tokent_t = std::uint32_t;
-
     struct request
     {
-        api_levelt_t api_level;
+        token signature {};
+        api_level level;
     };
 
     struct response
     {
-        context_id context {};
+        token signature {};
         error_id error {};
-        tokent_t token {};
     };
 }

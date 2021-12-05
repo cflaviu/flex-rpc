@@ -10,13 +10,12 @@ namespace flex_rpc::message::event::subscription
 {
     struct request
     {
-        object_id object = 0;
-        event_id event;
+        object_id object {};
+        event_id event {};
     };
 
     struct response
     {
-        context_id context {};
         error_id error {};
     };
 }

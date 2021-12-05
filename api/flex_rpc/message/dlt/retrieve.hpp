@@ -10,11 +10,12 @@ namespace flex_rpc::message::dlt::retrieve
 {
     struct request
     {
+        time_point start_time {};
+        time_point end_time {};
     };
 
     struct response
     {
-        context_id context {};
         error_id error {};
         raw_data data {};
     };

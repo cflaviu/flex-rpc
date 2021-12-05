@@ -55,9 +55,8 @@ namespace flex_rpc::server
         static error_t not_implemented(const context_id context, buffer_t& output_buffer) noexcept
         {
             Response response;
-            response.context = context;
             response.error = error_t::not_implemented;
-            serialize(response, output_buffer);
+            // serialize(response, output_buffer);
             return error_t::none;
         }
 

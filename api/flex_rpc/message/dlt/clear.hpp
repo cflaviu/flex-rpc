@@ -14,7 +14,6 @@ namespace flex_rpc::message::dlt::clear
 
     struct response
     {
-        context_id context {};
         error_id error {};
     };
 }

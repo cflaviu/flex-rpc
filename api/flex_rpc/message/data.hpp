@@ -60,6 +60,7 @@ namespace flex_rpc::message::request
     // clang-format on
 
     using array = cista::offset::vector<item>;
+    using identifiable_array = std::pair<context_id, array>;
 
     enum class type : std::uint8_t
     {
@@ -119,6 +120,8 @@ namespace flex_rpc::message::response
     // clang-format on
 
     using array = cista::offset::vector<item>;
+    using identifiable_array = std::pair<context_id, array>;
+    using data = cista::offset::vector<identifiable_array>;
 
     enum class type : std::uint8_t
     {
@@ -153,8 +156,7 @@ namespace flex_rpc::message
 {
     struct data
     {
-        response::array responses;
-        request::array requests;
-        context_id request_context = no_context; // request_context should be non-zero if requests are present
+        request::identifiable_array requests {};
+        response::data responses {};
     };
 }

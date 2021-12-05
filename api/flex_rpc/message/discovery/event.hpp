@@ -19,12 +19,11 @@ namespace flex_rpc::message::discovery::event
 
     struct request
     {
-        object_id object = 0;
+        object_id object {};
     };
 
     struct response
     {
-        context_id context {};
         error_id error {};
         parameter::type_array types {};
         info_array meta_information {};

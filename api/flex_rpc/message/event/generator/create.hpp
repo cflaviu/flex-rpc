@@ -15,15 +15,14 @@ namespace flex_rpc::message::event::generator::create
         using method_ref_array = cista::offset::vector<method_ref>;
         using event_ref_array = cista::offset::vector<event_ref>;
 
-        object_id object = 0;
-        method_ref_array input_methods;
-        event_ref_array input_events;
-        raw_data code;
+        object_id object {};
+        method_ref_array input_methods {};
+        event_ref_array input_events {};
+        raw_data code {};
     };
 
     struct response
     {
-        context_id context {};
         error_id error {};
         event_id event {};
     };

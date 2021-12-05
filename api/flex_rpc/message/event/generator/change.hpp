@@ -10,13 +10,20 @@ namespace flex_rpc::message::event::generator::change
 {
     struct request
     {
-        object_id object = 0;
-        event_id event;
+        using method_ref = std::pair<object_id, method_id>;
+        using event_ref = std::pair<object_id, event_id>;
+        using method_ref_array = cista::offset::vector<method_ref>;
+        using event_ref_array = cista::offset::vector<event_ref>;
+
+        object_id object {};
+        event_id event {};
+        method_ref_array input_methods {};
+        event_ref_array input_events {};
+        raw_data code {};
     };
 
     struct response
     {
-        context_id context {};
         error_id error {};
     };
 }

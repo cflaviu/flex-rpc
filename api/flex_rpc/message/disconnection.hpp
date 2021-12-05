@@ -10,6 +10,6 @@ namespace flex_rpc::message::disconnection
 {
     struct request
     {
-        uint32_t token;
+        token signature {};
     };
 }

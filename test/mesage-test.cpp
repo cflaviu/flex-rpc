@@ -18,7 +18,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check connection response message type")
     {
         using namespace response;
-        item msg {connection::response {0}};
+        item msg {connection::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::connection_response);
@@ -45,7 +45,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check call response message type")
     {
         using namespace response;
-        item msg {feature::list::response {0}};
+        item msg {feature::list::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::feature_list_response);
@@ -63,7 +63,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check call response request message type")
     {
         using namespace response;
-        item msg {call::response {0}};
+        item msg {call::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::call_response);
@@ -90,7 +90,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check ping response request message type")
     {
         using namespace response;
-        item msg {ping::response {0}};
+        item msg {ping::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::ping_response);
@@ -117,7 +117,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check event subscription response message type")
     {
         using namespace response;
-        item msg {event::subscription::response {0}};
+        item msg {event::subscription::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::event_subscription_response);
@@ -135,7 +135,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check event unsubscription response message type")
     {
         using namespace response;
-        item msg {event::unsubscription::response {0}};
+        item msg {event::unsubscription::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::event_unsubscription_response);
@@ -153,7 +153,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check create event-generator response message type")
     {
         using namespace response;
-        item msg {event::generator::create::response {0}};
+        item msg {event::generator::create::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::event_generator_create_response);
@@ -171,7 +171,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check destroy event-generator response message type")
     {
         using namespace response;
-        item msg {event::generator::destroy::response {0}};
+        item msg {event::generator::destroy::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::event_generator_destroy_response);
@@ -189,7 +189,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check discover-object response message type")
     {
         using namespace response;
-        item msg {discovery::object::response {0}};
+        item msg {discovery::object::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::discovery_object_response);
@@ -207,7 +207,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check discover-method response message type")
     {
         using namespace response;
-        item msg {discovery::method::response {0}};
+        item msg {discovery::method::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::discovery_method_response);
@@ -225,7 +225,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check discover-event response message type")
     {
         using namespace response;
-        item msg {discovery::event::response {0}};
+        item msg {discovery::event::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::discovery_event_response);
@@ -243,7 +243,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check DLT get-status response message type")
     {
         using namespace response;
-        item msg {dlt::status::response {0}};
+        item msg {dlt::status::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::dlt_status_response);
@@ -261,7 +261,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check DLT retrieve response message type")
     {
         using namespace response;
-        item msg {dlt::retrieve::response {0}};
+        item msg {dlt::retrieve::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::dlt_retrieve_response);
@@ -279,7 +279,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check DLT activate response message type")
     {
         using namespace response;
-        item msg {dlt::activate::response {0}};
+        item msg {dlt::activate::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::dlt_activate_response);
@@ -297,7 +297,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check DLT clear response message type")
     {
         using namespace response;
-        item msg {dlt::clear::response {0}};
+        item msg {dlt::clear::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::dlt_clear_response);
@@ -315,7 +315,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check DLT configuration change response message type")
     {
         using namespace response;
-        item msg {dlt::configuration::change::response {0}};
+        item msg {dlt::configuration::change::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::dlt_configuration_change_response);
@@ -333,7 +333,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check DLT configuration reset response message type")
     {
         using namespace response;
-        item msg {dlt::configuration::reset::response {0}};
+        item msg {dlt::configuration::reset::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::dlt_configuration_reset_response);
@@ -351,7 +351,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check DLT configuration retrieve response message type")
     {
         using namespace response;
-        item msg {dlt::configuration::retrieve::response {0}};
+        item msg {dlt::configuration::retrieve::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::dlt_configuration_retrieve_response);
@@ -369,7 +369,7 @@ namespace flex_rpc::message::variant
     TEST_CASE("Check DLT deactivate response message type")
     {
         using namespace response;
-        item msg {dlt::deactivate::response {0}};
+        item msg {dlt::deactivate::response {}};
         array messages {std::move(msg)};
 
         REQUIRE(type_of(messages.front()) == type::dlt_deactivate_response);

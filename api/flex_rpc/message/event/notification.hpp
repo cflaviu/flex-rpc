@@ -10,10 +10,9 @@ namespace flex_rpc::message::event
 {
     struct notification
     {
-        object_id object = 0;
-        event_id event;
-        context_id context;
-        error_id error;
-        raw_data data;
+        error_id error {};
+        object_id object {};
+        event_id event {};
+        raw_data data {};
     };
 }

@@ -48,7 +48,6 @@ namespace flex_rpc::message::feature
 
         struct response
         {
-            context_id context {};
             error_id error {};
             id_array features {};
         };
