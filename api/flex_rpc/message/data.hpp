@@ -17,8 +17,8 @@
     #include <flex_rpc/message/dlt/configuration/reset.hpp>
     #include <flex_rpc/message/dlt/configuration/retrieve.hpp>
     #include <flex_rpc/message/dlt/deactivate.hpp>
-    #include <flex_rpc/message/dlt/get_status.hpp>
     #include <flex_rpc/message/dlt/retrieve.hpp>
+    #include <flex_rpc/message/dlt/status.hpp>
     #include <flex_rpc/message/event/generator/change.hpp>
     #include <flex_rpc/message/event/generator/create.hpp>
     #include <flex_rpc/message/event/generator/destroy.hpp>

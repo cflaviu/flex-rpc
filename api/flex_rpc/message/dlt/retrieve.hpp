@@ -12,6 +12,8 @@ namespace flex_rpc::message::dlt::retrieve
     {
         time_point start_time {};
         time_point end_time {};
+        std::uint8_t min_log_level {};
+        std::uint8_t max_log_level {};
     };
 
     struct response
